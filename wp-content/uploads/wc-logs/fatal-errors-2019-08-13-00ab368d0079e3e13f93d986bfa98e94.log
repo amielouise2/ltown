@@ -1,0 +1,17 @@
+2019-08-13T18:38:16+00:00 CRITICAL Uncaught Error: Call to a member function format() on int in /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/templates/single-cpt-1.php:149
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-includes/template-loader.php(78): include()
+#1 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-blog-header.php(19): require_once('/Users/amiewalt...')
+#2 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/index.php(17): require('/Users/amiewalt...')
+#3 {main}
+  thrown in /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/templates/single-cpt-1.php on line 149
+
+2019-08-13T19:27:45+00:00 CRITICAL Uncaught Exception: DateTime::__construct(): Failed to parse time string (tomorrow + -1day) at position 9 (+): Unexpected character in /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/templates/single-cpt-1.php:154
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/templates/single-cpt-1.php(154): DateTime->__construct('tomorrow + -1da...')
+#1 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-includes/template-loader.php(78): include('/Users/amiewalt...')
+#2 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-blog-header.php(19): require_once('/Users/amiewalt...')
+#3 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/index.php(17): require('/Users/amiewalt...')
+#4 {main}
+  thrown in /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/templates/single-cpt-1.php on line 154
+

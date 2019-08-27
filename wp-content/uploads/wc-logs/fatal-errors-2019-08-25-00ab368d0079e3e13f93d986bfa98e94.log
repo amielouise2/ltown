@@ -1,0 +1,9 @@
+2019-08-25T19:25:04+00:00 CRITICAL Uncaught Error: Call to undefined function round_to_2dp() in /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_checkout.php:53
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_shortcode_checkout('', '', 'nd_booking_chec...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_che...')
+#3 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_che...')
+#4 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php(31): wpb_js_remove_wpautop('<p>[nd_booking_...', true)
+#5 /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-co in /Users/amiewalton/Documents/Websites/www.lawrenctown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_checkout.php on line 53
+
