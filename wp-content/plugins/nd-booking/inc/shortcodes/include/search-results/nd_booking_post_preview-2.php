@@ -11,6 +11,7 @@ $nd_booking_id_room = get_post_meta( get_the_ID(), 'nd_booking_id_room', true );
 if ( $nd_booking_id_room == '' ) { $nd_booking_id_room = $nd_booking_id; }else{ $nd_booking_id_room = $nd_booking_id_room; }
 
 //metabox
+$nd_booking_meta_box_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
 $nd_booking_meta_box_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
 $nd_booking_meta_box_color = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_color', true ); if ($nd_booking_meta_box_color == '') { $nd_booking_meta_box_color = '#000'; }
 $nd_booking_meta_box_max_people = get_post_meta( get_the_ID(), 'nd_booking_meta_box_max_people', true );

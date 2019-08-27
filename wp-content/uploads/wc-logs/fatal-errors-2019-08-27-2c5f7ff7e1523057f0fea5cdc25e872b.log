@@ -1,0 +1,27 @@
+2019-08-27T19:42:55+00:00 CRITICAL Uncaught TypeError: DateTime::__construct() expects parameter 2 to be DateTimeZone, int given in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:62
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php(62): DateTime->__construct('tomorrow', 1567021375)
+#1 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#4 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/classes/editors/class-vc-frontend-editor.php(938): do_shortcode('[nd_booking_sea...')
+#5 /Users/amiewalton/Documents/Webs in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 62
+
+2019-08-27T19:44:03+00:00 CRITICAL Uncaught TypeError: DateTime::__construct() expects parameter 2 to be DateTimeZone, int given in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:62
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php(62): DateTime->__construct('tomorrow', 1567021443)
+#1 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#4 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/classes/editors/class-vc-frontend-editor.php(938): do_shortcode('[nd_booking_sea...')
+#5 /Users/amiewalton/Documents/Webs in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 62
+
+2019-08-27T20:03:21+00:00 CRITICAL Uncaught TypeError: DateTime::__construct() expects parameter 2 to be DateTimeZone, int given in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/visual/search/index.php:34
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/visual/search/index.php(34): DateTime->__construct('tomorrow', 1567022601)
+#1 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_vc_shortcode_search(Array, '', 'nd_booking_sear...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#4 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_sea...')
+#5 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/ in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/visual/search/index.php on line 34
+
