@@ -1,0 +1,27 @@
+2019-08-28T05:52:21+00:00 CRITICAL Uncaught TypeError: DateTime::__construct() expects parameter 2 to be DateTimeZone, int given in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:55
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php(55): DateTime->__construct('tomorrow', 1567144341)
+#1 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#4 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_sea...')
+#5 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp- in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 55
+
+2019-08-28T05:56:54+00:00 CRITICAL Uncaught Error: Call to a member function format() on string in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:57
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_sea...')
+#4 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php(31): wpb_js_remove_wpautop('<p>[nd_booking_...', true)
+#5 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_compo in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 57
+
+2019-08-28T05:57:07+00:00 CRITICAL Uncaught Error: Call to a member function format() on string in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:58
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#1 [internal function]: do_shortcode_tag(Array)
+#2 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_sea...')
+#4 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php(31): wpb_js_remove_wpautop('<p>[nd_booking_...', true)
+#5 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/js_compo in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 58
+

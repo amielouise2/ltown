@@ -52,7 +52,7 @@ function nd_booking_shortcode_search_results() {
 
         $nd_booking_date_month_from_front = date_i18n('M');
 
-        $nd_booking_date_tomorrow = new DateTime('tomorrow', strtotime(' + 2 days'));
+        $nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
         $nd_booking_date_number_to_front = $nd_booking_date_tomorrow->format('d');
         $nd_booking_date_month_to_front = $nd_booking_date_tomorrow->format('M');
 

@@ -43,7 +43,8 @@ function nd_options_customizer_header( $wp_customize ) {
 	        'header-2' => 'header 2',
 	        'header-3' => 'header 3',
 	        'header-4' => 'header 4',
-	        'header-5' => 'header 5',
+			'header-5' => 'header 5',
+			
 	    ),
 	) );
 
