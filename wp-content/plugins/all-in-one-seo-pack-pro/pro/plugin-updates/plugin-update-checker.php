@@ -826,9 +826,18 @@ class PluginUpdateChecker_3_1 {
 		static $cachedResult = null;
 
 		if ( $cachedResult === null ) {
+			if ( !defined('WPMU_PLUGIN_DIR') || !is_string(WPMU_PLUGIN_DIR)) {
+				$cachedResult = false;
+				return $cachedResult;
+			}
+
 			//Convert both paths to the canonical form before comparison.
 			$muPluginDir = realpath(WPMU_PLUGIN_DIR);
 			$pluginPath  = realpath($this->pluginAbsolutePath);
+			if ( ($muPluginDir == false ) || ($pluginPath == false) ) {
+				$muPluginDir = wp_normalize_path(WPMU_PLUGIN_DIR);
+				$pluginPath = wp_normalize_path($this->pluginAbsolutePath);
+			}
 
 			$cachedResult = (strpos($pluginPath, $muPluginDir) === 0);
 		}
