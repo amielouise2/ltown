@@ -41,24 +41,29 @@ function nd_booking_shortcode_search_results() {
         $nd_booking_date_month_to_front = date_i18n('M',strtotime($nd_booking_date_to));
         
     } else {
-        $nd_booking_date_from = date('Y-m-d', strtotime(' + 1 days'));
-        $nd_booking_date_to = date('Y-m-d', strtotime(' + 2 days'));
+        //customization for min stay of 2 nights
+        $nd_booking_date_from = date('m/d/Y');
+        //$nd_booking_date_to = date('Y-m-d', strtotime(' + 2 days'));
+        $nd_booking_date_to = date('Y-m-d', strtotime(' +  1 days'));
         $nd_booking_archive_form_guests = 1;
-        $nd_booking_nights_number = 1;
+        $nd_booking_nights_number = 2;
+        /*$nd_booking_date_from = date('m/d/Y');
+        $nd_booking_date_to = date('Y-m-d', strtotime(' + 1 days'));
+        $nd_booking_archive_form_guests = 1;
+        $nd_booking_nights_number = 1;*/
 
         //for calendar
-        $nd_booking_date_number_from_front = date('d', strtotime(' + 1 days'));
+        $nd_booking_date_number_from_front = date('d');
         $nd_booking_date_month_from_front = date('M');
 
         $nd_booking_date_month_from_front = date_i18n('M');
 
-        $nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
+        $nd_booking_date_tomorrow = new DateTime('tomorrow');
         $nd_booking_date_number_to_front = $nd_booking_date_tomorrow->format('d');
         $nd_booking_date_month_to_front = $nd_booking_date_tomorrow->format('M');
 
-        $nd_booking_todayy = date('Y/m/d', strtotime(' + 1 days'));
+        $nd_booking_todayy = date('Y/m/d');
          //customize for 2 night stay
-        
         //$nd_booking_tomorroww = date('Y/m/d', strtotime($nd_booking_todayy.' + 2 days'));
         $nd_booking_tomorroww = date('Y/m/d', strtotime($nd_booking_todayy.' + 1 days'));
         $nd_booking_date_month_to_front = date_i18n('M',strtotime($nd_booking_tomorroww));

@@ -43,7 +43,6 @@ $nd_booking_id = get_the_ID();
 $nd_booking_permalink = get_permalink( $nd_booking_id );
 
 //metabox
-$nd_booking_meta_box_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
 $nd_booking_meta_box_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
 $nd_booking_meta_box_color = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_color', true ); if ($nd_booking_meta_box_color == '') { $nd_booking_meta_box_color = '#000'; }
 $nd_booking_meta_box_max_people = get_post_meta( get_the_ID(), 'nd_booking_meta_box_max_people', true );
@@ -118,7 +117,7 @@ $str .= '
                 <div class="nd_booking_section nd_booking_height_20"></div> 
                 <p>'.$nd_booking_meta_box_text_preview.'</p>
                 <div class="nd_booking_section nd_booking_height_20"></div>
-                <a style="background-color: '.$nd_booking_meta_box_color.';" href="'.$nd_booking_permalink.'" class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_options_color_white nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2">'.__('BOOK','nd-booking').' <span class="nd_booking_display_none_all_iphone">'.__('NOW','nd-booking').'</span> '.__('FROM','nd-booking').' '.$nd_booking_meta_box_price.' '.nd_booking_get_currency().'</a>
+                <a style="background-color: '.$nd_booking_meta_box_color.';" href="'.$nd_booking_permalink.'" class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_options_color_white nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2">'.__('BOOK','nd-booking').' <span class="nd_booking_display_none_all_iphone">'.__('NOW','nd-booking').'</span> '.__('FROM','nd-booking').' '.$nd_booking_meta_box_min_price.' '.nd_booking_get_currency().'</a>
                
             </div>
         </div>

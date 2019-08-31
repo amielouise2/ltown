@@ -14,8 +14,6 @@ function nd_options_shortcode_list($atts, $content = null)
     'nd_options_description' => '',
     'nd_options_label' => '',
     'nd_options_label_color' => '',
-    'nd_options_url' => '',
-    'nd_options_url_text' => '',
   ), $atts);
 
   $str = '';
@@ -26,8 +24,6 @@ function nd_options_shortcode_list($atts, $content = null)
   $nd_options_price = $atts['nd_options_price'];
   $nd_options_description = $atts['nd_options_description'];
   $nd_options_label = $atts['nd_options_label'];
-  $nd_options_url = $atts['nd_options_url'];
-  $nd_options_url_text = $atts['nd_options_url_text'];
 
   //label color
   $nd_options_label_color = $atts['nd_options_label_color'];
@@ -64,9 +60,7 @@ function nd_options_shortcode_list($atts, $content = null)
         </div>
         <div class="nd_options_section nd_options_height_10"></div>
         <div class="nd_options_section">
-            <p class=" '.$nd_options_image_padding.' nd_options_font_weight_lighter nd_options_float_left">'.$nd_options_description.'
-               <br /> <a href='.$nd_options_url.'>'.$nd_options_url_text.'</a></p>
-            
+            <p class=" '.$nd_options_image_padding.' nd_options_font_weight_lighter nd_options_float_left">'.$nd_options_description.'</p>
             <p style="background-color:'.$nd_options_label_color.';" class=" '.$nd_options_label_class.' nd_options_display_inline_block nd_options_first_font nd_options_padding_5_10 nd_options_border_radius_15 nd_options_float_right nd_options_font_size_13">'.$nd_options_label.'</p>
         </div>
     </div>
@@ -134,20 +128,6 @@ function nd_options_list() {
             "heading" => __( "Label Bg Color", "nd-shortcodes" ),
             "param_name" => "nd_options_label_color",
             "description" => __( "Choose label background color", "nd-shortcodes" )
-         ),
-         array(
-            "type" => "textfield",
-            "class" => "",
-            "heading" => __( "URL Link", "nd-shortcodes" ),
-            "param_name" => "nd_options_url",
-            "description" => __( "Enter full url (http://)", "nd-shortcodes" )
-         ),
-         array(
-            "type" => "textfield",
-            "class" => "",
-            "heading" => __( "Link Text", "nd-shortcodes" ),
-            "param_name" => "nd_options_url_text",
-            "description" => __( "Enter the link text", "nd-shortcodes" )
          ),
          array(
             "type" => "textfield",

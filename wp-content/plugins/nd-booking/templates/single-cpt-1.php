@@ -10,7 +10,6 @@ $nd_booking_result = '';
 //get header image info
 $nd_booking_meta_box_image_position = get_post_meta( get_the_ID(), 'nd_booking_meta_box_image_position', true );
 $nd_booking_meta_box_image = get_post_meta( get_the_ID(), 'nd_booking_meta_box_image', true );
-$nd_booking_meta_box_price = get_post_meta( get_the_ID(), 'nd_booking_meta_box_price', true );
 $nd_booking_meta_box_min_price = get_post_meta( get_the_ID(), 'nd_booking_meta_box_min_price', true );
 $nd_booking_meta_box_title_packages = get_post_meta( get_the_ID(), 'nd_booking_meta_box_title_packages', true );
 
@@ -79,7 +78,7 @@ if ( $nd_booking_meta_box_image != '' ) {
                             
 					    <div class="nd_booking_display_inline_block ">
 					        <div class="nd_booking_float_left nd_booking_text_align_right">
-					            <h1 class="nd_options_color_white nd_booking_font_size_50">'.$nd_booking_meta_box_price.'</h1>
+					            <h1 class="nd_options_color_white nd_booking_font_size_50">'.$nd_booking_meta_box_min_price.'</h1>
 					        </div>
 					        <div class="nd_booking_float_right nd_booking_text_align_left nd_booking_margin_left_10">
 					            <h5 class="nd_options_second_font nd_options_color_white nd_booking_margin_top_7 nd_booking_font_size_14">'.nd_booking_get_currency().'</h5>
@@ -139,15 +138,15 @@ if(have_posts()) :
     	wp_enqueue_style('jquery-ui-datepicker-css', esc_url(plugins_url('jquery-ui-datepicker.css', __FILE__ )) );
 
     	//date
-    	$nd_booking_date_from = date('m/d/Y', strtotime(' + 1 day'));
-        $nd_booking_date_to = date('Y-m-d', strtotime(' + 2 days'));
+    	$nd_booking_date_from = date('m/d/Y');
+        $nd_booking_date_to = date('Y-m-d', strtotime(' + 1 days'));
         $nd_booking_archive_form_guests = 1;
         $nd_booking_nights_number = 1;
-        $nd_booking_date_number_from_front = date('d', strtotime(' + 1 day'));
+        $nd_booking_date_number_from_front = date('d');
         $nd_booking_date_month_from_front = date('M');
 		$nd_booking_date_month_from_front = date_i18n('M',strtotime($nd_booking_date_from));
 		 //customize for 2 night stay
-		$nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
+		$nd_booking_date_tomorrow = new DateTime('tomorrow');
 		//$nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
 		$nd_booking_date_number_to_front = $nd_booking_date_tomorrow->format('d');
 		 //customize for 2 night stay
@@ -233,10 +232,10 @@ if(have_posts()) :
 
 			                    $( "#nd_booking_archive_form_date_range_from" ).datepicker({
 			                      defaultDate: "+1w",
-			                      minDate: 1,
+			                      minDate: 0,
 			                      altField: "#nd_booking_date_month_from",
 			                      altFormat: "M",
-			                      firstDay: 1,
+			                      firstDay: 0,
 			                      dateFormat: "mm/dd/yy",
 			                      monthNames: ["'.__('January','nd-booking').'","'.__('February','nd-booking').'","'.__('March','nd-booking').'","'.__('April','nd-booking').'","'.__('May','nd-booking').'","'.__('June','nd-booking').'", "'.__('July','nd-booking').'","'.__('August','nd-booking').'","'.__('September','nd-booking').'","'.__('October','nd-booking').'","'.__('November','nd-booking').'","'.__('December','nd-booking').'"],
 			                      monthNamesShort: [ "'.__('Jan','nd-booking').'", "'.__('Feb','nd-booking').'", "'.__('Mar','nd-booking').'", "'.__('Apr','nd-booking').'", "'.__('May','nd-booking').'", "'.__('Jun','nd-booking').'", "'.__('Jul','nd-booking').'", "'.__('Aug','nd-booking').'", "'.__('Sep','nd-booking').'", "'.__('Oct','nd-booking').'", "'.__('Nov','nd-booking').'", "'.__('Dec','nd-booking').'" ],
@@ -570,9 +569,8 @@ if(have_posts()) :
 						            </div>
 						            <div id="nd_booking_single_cpt_1_basic_info_night" class="nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
 						                <img alt="" class="" width="40" src="'.esc_url(plugins_url('icon-bed-grey.svg', __FILE__ )).'">
-										<div class="nd_booking_section nd_booking_height_5"></div>
-										<p class="">'.nd_booking_get_currency().' '.get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true ).' / '.__('PER NIGHT', 'nd_booking').'</p>
-						               <!-- <p class="">'.nd_booking_get_final_price($nd_booking_id,date('m/d/Y')).' '.nd_booking_get_currency().' / '.__('PER NIGHT','nd-booking').'</p> -->
+						                <div class="nd_booking_section nd_booking_height_5"></div>
+						                <p class="">'.nd_booking_get_final_price($nd_booking_id,date('m/d/Y')).' '.nd_booking_get_currency().' / '.__('PER NIGHT','nd-booking').'</p>
 						            </div>
 						            <div id="nd_booking_single_cpt_1_basic_info_week_price" class="nd_booking_week_price_icon nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
 						                <span class="nd_booking_position_relative nd_booking_display_inline_block ">
@@ -1022,7 +1020,6 @@ if ( $nd_booking_meta_box_similar_rooms != '' ) {
 		$nd_booking_permalink = get_permalink( $nd_booking_id );
 
 		//metabox
-		$nd_booking_meta_box_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
 		$nd_booking_meta_box_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
 		$nd_booking_meta_box_color = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_color', true ); if ($nd_booking_meta_box_color == '') { $nd_booking_meta_box_color = '#000'; }
 		$nd_booking_meta_box_max_people = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_max_people', true );
@@ -1089,7 +1086,7 @@ if ( $nd_booking_meta_box_similar_rooms != '' ) {
 		                <div class="nd_booking_section nd_booking_height_20"></div> 
 		                <p>'.$nd_booking_meta_box_text_preview.'</p>
 		                <div class="nd_booking_section nd_booking_height_20"></div> 
-		                <a style="color: '.$nd_booking_meta_box_color.'; border:2px solid '.$nd_booking_meta_box_color.';" href="'.$nd_booking_permalink.'" class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 ">'.__('BOOK','nd-booking').' <span class="nd_booking_display_none_all_iphone">'.__('NOW','nd-booking').'</span> '.__('FROM','nd-booking').' '.$nd_booking_meta_box_price.' '.nd_booking_get_currency().'</a>
+		                <a style="color: '.$nd_booking_meta_box_color.'; border:2px solid '.$nd_booking_meta_box_color.';" href="'.$nd_booking_permalink.'" class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2 ">'.__('BOOK','nd-booking').' <span class="nd_booking_display_none_all_iphone">'.__('NOW','nd-booking').'</span> '.__('FROM','nd-booking').' '.$nd_booking_meta_box_min_price.' '.nd_booking_get_currency().'</a>
 
 		            </div>
 		        </div>

@@ -43,7 +43,6 @@ $nd_booking_id = get_the_ID();
 $nd_booking_permalink = get_permalink( $nd_booking_id );
 
 //metabox
-$nd_booking_meta_box_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
 $nd_booking_meta_box_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
 $nd_booking_meta_box_color = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_color', true ); if ($nd_booking_meta_box_color == '') { $nd_booking_meta_box_color = '#000'; }
 $nd_booking_meta_box_max_people = get_post_meta( get_the_ID(), 'nd_booking_meta_box_max_people', true );
@@ -72,7 +71,7 @@ if ( has_post_thumbnail() ) {
 
                         <div class="nd_booking_display_table nd_booking_float_left">
                             <p class="nd_booking_display_table_cell nd_booking_padding_right_20 nd_booking_vertical_align_middle  nd_options_color_white nd_booking_margin_right_10  nd_booking_font_size_11 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">'.$nd_booking_title.'</p>
-                            <p style="background-color:'.$nd_booking_meta_box_color.';" class="nd_booking_display_table_cell nd_booking_vertical_align_middle  nd_options_color_white  nd_booking_font_size_11 nd_booking_padding_3_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">'.__('FROM','nd-booking').' '.$nd_booking_meta_box_price.' '.nd_booking_get_currency().'</p>
+                            <p style="background-color:'.$nd_booking_meta_box_color.';" class="nd_booking_display_table_cell nd_booking_vertical_align_middle  nd_options_color_white  nd_booking_font_size_11 nd_booking_padding_3_5 nd_booking_letter_spacing_2 nd_booking_text_transform_uppercase">'.__('FROM','nd-booking').' '.$nd_booking_meta_box_min_price.' '.nd_booking_get_currency().'</p>
                         </div>
                         
                     </div>

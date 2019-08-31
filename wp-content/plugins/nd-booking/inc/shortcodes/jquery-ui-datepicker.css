@@ -108,10 +108,8 @@
 /* with multiple calendars */
 .ui-datepicker.ui-datepicker-multi {
 	width: auto;
-	background-color:  #000;
+	background-color: #fff;
 	border: 1px solid #eee;
-	/*background-color: #fff;
-	border: 1px solid #eee;*/
 }
 .ui-datepicker-multi .ui-datepicker-group {
 	float: left;
