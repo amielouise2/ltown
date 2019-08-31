@@ -515,6 +515,7 @@ function nd_booking_add_booking_in_db(
   $nd_booking_paypal_payment_status,
   $nd_booking_paypal_currency,
   $nd_booking_paypal_tx,
+  $nd_booking_stripe_error,
   $nd_booking_action_type
 
 ) {
@@ -581,6 +582,7 @@ function nd_booking_add_booking_in_db(
 				'paypal_payment_status' => $nd_booking_paypal_payment_status,
 				'paypal_currency' => $paypal_currency,
 				'paypal_tx' => $paypal_tx,
+				'stripe_error' => $nd_booking_stripe_error,
 				
 				
 				'action_type' => $nd_booking_action_type
@@ -594,7 +596,7 @@ function nd_booking_add_booking_in_db(
 				//order added in db
 			
 				//hook
-	        	do_action('nd_booking_reservation_added_in_db',$nd_booking_id_post,$nd_booking_title_post,$nd_booking_date,$nd_booking_date_from,$nd_booking_date_to,$nd_booking_guests,$nd_booking_final_trip_price,$nd_booking_extra_services,$nd_booking_id_user,$nd_booking_user_first_name,$nd_booking_user_last_name,$nd_booking_paypal_email,$nd_booking_user_phone,$nd_booking_user_address,$nd_booking_user_city,$nd_booking_user_country,$nd_booking_user_message,$nd_booking_user_arrival,$nd_booking_user_coupon,$nd_booking_paypal_payment_status,$nd_booking_paypal_currency,$nd_booking_paypal_tx,$nd_booking_action_type);	
+	        	do_action('nd_booking_reservation_added_in_db',$nd_booking_id_post,$nd_booking_title_post,$nd_booking_date,$nd_booking_date_from,$nd_booking_date_to,$nd_booking_guests,$nd_booking_final_trip_price,$nd_booking_extra_services,$nd_booking_id_user,$nd_booking_user_first_name,$nd_booking_user_last_name,$nd_booking_paypal_email,$nd_booking_user_phone,$nd_booking_user_address,$nd_booking_user_city,$nd_booking_user_country,$nd_booking_user_message,$nd_booking_user_arrival,$nd_booking_user_coupon,$nd_booking_paypal_payment_status,$nd_booking_paypal_currency,$nd_booking_paypal_tx,$nd_booking_stripe_error,$nd_booking_action_type);	
 
 			}else{
 

@@ -3,11 +3,25 @@
 
 //START  nd_booking_checkout
 function nd_booking_shortcode_checkout() {
+    if (!function_exists('write_log')) {
+
+        function write_log($log) {
+            if (true === WP_DEBUG) {
+                if (is_array($log) || is_object($log)) {
+                    error_log(print_r($log, true));
+                } else {
+                    error_log($log);
+                }
+            }
+        }
+    
+    }
 
     $nd_booking_date = date('H:m:s F j Y');
-$nd_booking_booking_form_currency = nd_booking_get_currency();
-$nd_booking_paypal_tx = rand(100000000,999999999);
+    $nd_booking_booking_form_currency = nd_booking_get_currency();
+    $nd_booking_paypal_tx = '';
     $nd_booking_shortcode_result = '';
+    $nd_booking_stripe_error = 'no error';
     
     if( isset( $_POST['nd_booking_form_booking_arrive'] ) ) {  $nd_booking_form_booking_arrive = sanitize_text_field($_POST['nd_booking_form_booking_arrive']); }else{ $nd_booking_form_booking_arrive = '';} 
     if( isset( $_POST['nd_booking_form_checkout_arrive'] ) ) {  $nd_booking_form_checkout_arrive = sanitize_text_field($_POST['nd_booking_form_checkout_arrive']); }else{ $nd_booking_form_checkout_arrive = '';} 
@@ -176,6 +190,9 @@ $nd_booking_paypal_tx = rand(100000000,999999999);
             }else{
 
                 //stripe data
+                write_log('THIS IS THE START OF STRIPE - stripe error is..');
+                write_log($nd_booking_stripe_error);
+
                 $nd_booking_amount = $nd_booking_booking_form_final_price*100;
                 $nd_booking_currency = get_option('nd_booking_stripe_currency');
                 $nd_booking_description = $nd_booking_checkout_form_post_title.' - '.$nd_booking_booking_form_name.' '.$nd_booking_booking_form_surname.' - '.$nd_booking_booking_form_date_from.' '.$nd_booking_booking_form_date_to;
@@ -244,6 +261,7 @@ $nd_booking_paypal_tx = rand(100000000,999999999);
                 {
                     //$error_message = $nd_booking_response->get_error_message();
                     $nd_booking_paypal_error = 1;
+                    $nd_booking_paypal_tx = 'Incomplete Transaction';
                 }
                 //END check the response
 
@@ -502,6 +520,7 @@ $nd_booking_paypal_tx = rand(100000000,999999999);
           $nd_booking_booking_form_payment_status,
           $nd_booking_booking_form_currency,
           $nd_booking_paypal_tx,
+          $nd_booking_stripe_error,
           $nd_booking_booking_form_action_type
 
         );

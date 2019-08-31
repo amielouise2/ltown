@@ -52,6 +52,8 @@ function nd_booking_create_booking_db()
       paypal_currency varchar(255) NOT NULL,
       paypal_tx varchar(255) NOT NULL,
       action_type varchar(255) NOT NULL,
+      user_state varchar(255),
+      stripe_error varchar(255),
       UNIQUE KEY id (id)
     );";
 

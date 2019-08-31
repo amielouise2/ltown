@@ -43,6 +43,7 @@ $nd_booking_id = get_the_ID();
 $nd_booking_permalink = get_permalink( $nd_booking_id );
 
 //metabox
+$nd_booking_meta_box_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
 $nd_booking_meta_box_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
 $nd_booking_meta_box_color = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_color', true ); if ($nd_booking_meta_box_color == '') { $nd_booking_meta_box_color = '#000'; }
 $nd_booking_meta_box_max_people = get_post_meta( get_the_ID(), 'nd_booking_meta_box_max_people', true );
@@ -81,7 +82,7 @@ $str .= '
                 <div class="nd_booking_section nd_booking_height_5"></div>
                 <h4>'.$nd_booking_title.'</h4>
                 <div class="nd_booking_section nd_booking_height_10"></div>
-                <p class="">'.__('From','nd-booking').' '.$nd_booking_meta_box_min_price.' '.nd_booking_get_currency().' '.__('per night','nd-booking').'</p>
+                <p class="">'.__('From','nd-booking').' '.$nd_booking_meta_box_price.' '.nd_booking_get_currency().' '.__('per night','nd-booking').'</p>
                 <div class="nd_booking_section nd_booking_height_10"></div>
                 <div class="nd_booking_section">
                     <a href="'.$nd_booking_permalink.'" style="background-color: '.$nd_booking_meta_box_color.';" class="nd_options_color_white nd_booking_padding_5_10 nd_booking_font_size_11">'.__('BOOK NOW','nd-booking').'</a>

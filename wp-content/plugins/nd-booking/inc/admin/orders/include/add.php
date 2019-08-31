@@ -70,6 +70,7 @@ function nd_booking_settings_menu_add_orders() { ?>
       $nd_booking_booking_form_payment_status,
       $nd_booking_booking_form_currency,
       $nd_booking_paypal_tx,
+      $nd_booking_stripe_error,
       $nd_booking_booking_form_action_type
 
     );

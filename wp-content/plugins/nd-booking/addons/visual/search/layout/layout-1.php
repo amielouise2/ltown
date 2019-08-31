@@ -70,10 +70,10 @@ $str .= '
 
                         $( "#nd_booking_archive_form_date_range_from" ).datepicker({
                           defaultDate: "+1w",
-                          minDate: 0,
+                          minDate: 1,
                           altField: "#nd_booking_date_month_from",
                           altFormat: "M",
-                          firstDay: 0,
+                          firstDay: 1,
                           dateFormat: "mm/dd/yy",
                           monthNames: ["'.__('January','nd-booking').'","'.__('February','nd-booking').'","'.__('March','nd-booking').'","'.__('April','nd-booking').'","'.__('May','nd-booking').'","'.__('June','nd-booking').'", "'.__('July','nd-booking').'","'.__('August','nd-booking').'","'.__('September','nd-booking').'","'.__('October','nd-booking').'","'.__('November','nd-booking').'","'.__('December','nd-booking').'"],
                           monthNamesShort: [ "'.__('Jan','nd-booking').'", "'.__('Feb','nd-booking').'", "'.__('Mar','nd-booking').'", "'.__('Apr','nd-booking').'", "'.__('May','nd-booking').'", "'.__('Jun','nd-booking').'", "'.__('Jul','nd-booking').'", "'.__('Aug','nd-booking').'", "'.__('Sep','nd-booking').'", "'.__('Oct','nd-booking').'", "'.__('Nov','nd-booking').'", "'.__('Dec','nd-booking').'" ],
