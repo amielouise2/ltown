@@ -1,3 +1,17 @@
 
-[31-Aug-2019 14:33:43 UTC] THIS IS THE START OF STRIPE - stripe error is..
-[31-Aug-2019 14:33:43 UTC] no error
+
+[31-Aug-2019 14:58:07 UTC] THIS IS THE START OF STRIPE - stripe error is..
+[31-Aug-2019 14:58:07 UTC] no error
+[31-Aug-2019 14:58:07 UTC] CUSTOMER RESPONSE CODE IS ...
+[31-Aug-2019 14:58:07 UTC] 402
+[31-Aug-2019 15:02:40 UTC] THIS IS THE START OF STRIPE - stripe error is..
+[31-Aug-2019 15:02:40 UTC] no error
+[31-Aug-2019 15:02:41 UTC] CUSTOMER RESPONSE CODE IS ...
+[31-Aug-2019 15:02:41 UTC] 402
+[31-Aug-2019 15:02:42 UTC] PHP Notice:  Undefined variable: nd_booking_stripe_data in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_checkout.php on line 335
+[31-Aug-2019 15:02:42 UTC] PHP Notice:  Trying to get property 'error' of non-object in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_checkout.php on line 335
+[31-Aug-2019 15:02:42 UTC] PHP Notice:  Trying to get property 'message' of non-object in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_checkout.php on line 335
+[31-Aug-2019 15:07:08 UTC] THIS IS THE START OF STRIPE - stripe error is..
+[31-Aug-2019 15:07:08 UTC] no error
+[31-Aug-2019 15:07:08 UTC] CUSTOMER RESPONSE CODE IS ...
+[31-Aug-2019 15:07:08 UTC] 402

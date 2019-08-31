@@ -199,50 +199,121 @@ function nd_booking_shortcode_checkout() {
                 $nd_booking_source = $nd_booking_stripe_token;
                 $nd_booking_stripe_secret_key = get_option('nd_booking_stripe_secret_key');
                 $nd_booking_url = 'https://api.stripe.com/v1/charges';
+                $nd_customer_url = 'https://api.stripe.com/v1/customers';
+                // Create a Customer:
+                $nd_customer_response = wp_remote_post( 
 
-
-                //prepare the request
-                $nd_booking_response = wp_remote_post( 
-
-                    $nd_booking_url, 
+                    $nd_customer_url, 
 
                     array(
                     
                         'method' => 'POST',
-                        'timeout' => 45,
-                        'redirection' => 5,
-                        'httpversion' => '1.0',
-                        'blocking' => true,
-                        'headers' => array(
-                            'Authorization' => 'Bearer '.$nd_booking_stripe_secret_key
-                        ),
-                        'body' => array( 
-                            'amount' => $nd_booking_amount,
-                            'currency' => $nd_booking_currency,
-                            'description' => $nd_booking_description,
-                            'source' => $nd_booking_source,
-                            'metadata[date_from]' => $nd_booking_booking_form_date_from,
-                            'metadata[date_to]' => $nd_booking_booking_form_date_to,
-                            'metadata[guests]' => $nd_booking_booking_form_guests,
-                            'metadata[name]' => $nd_booking_booking_form_name.' '.$nd_booking_booking_form_surname,
-                            'metadata[email]' => $nd_booking_booking_form_email,
-                            'metadata[phone]' => $nd_booking_booking_form_phone,
-                            'metadata[address]' => $nd_booking_booking_form_address.' '.$nd_booking_booking_form_city.' '.$nd_booking_booking_form_country.' '.$nd_booking_booking_form_zip,
-                            'metadata[requests]' => $nd_booking_booking_form_requests
-                        ),
-                        'cookies' => array()
-                    
+                            'timeout' => 45,
+                            'redirection' => 5,
+                            'httpversion' => '1.0',
+                            'blocking' => true,
+                            'headers' => array(
+                                'Authorization' => 'Bearer '.$nd_booking_stripe_secret_key
+                            ),
+                            'body' => array(
+                                'source' => $nd_booking_source,
+                                'email' => $nd_booking_booking_form_email,
+                            )
                     )
-                );
+                );     
+                $nd_customer_http_response_code = wp_remote_retrieve_response_code( $nd_customer_response );
+                write_log('CUSTOMER RESPONSE CODE IS ...');
+                write_log($nd_customer_http_response_code);
+                //if we have a good customer object create the charge with customer
+                if ( $nd_customer_http_response_code == 200 ) {
+                    
+                    $nd_customer_response_body = wp_remote_retrieve_body( $nd_customer_response );
+                    $nd_customer_stripe_data = json_decode( $nd_customer_response_body );
 
+
+
+                    //prepare the charge request
+                    $nd_booking_response = wp_remote_post( 
+
+                        $nd_booking_url, 
+
+                        array(
+                        
+                            'method' => 'POST',
+                            'timeout' => 45,
+                            'redirection' => 5,
+                            'httpversion' => '1.0',
+                            'blocking' => true,
+                            'headers' => array(
+                                'Authorization' => 'Bearer '.$nd_booking_stripe_secret_key
+                            ),
+                            'body' => array( 
+                                'amount' => $nd_booking_amount,
+                                'currency' => $nd_booking_currency,
+                                'description' => $nd_booking_description,
+                                'customer' => $nd_customer_stripe_data->id,
+                                'statement_descriptor' => 'Lawrencetown Lodge',
+                                'receipt_email' => $nd_booking_booking_form_email,
+                                'metadata[date_from]' => $nd_booking_booking_form_date_from,
+                                'metadata[date_to]' => $nd_booking_booking_form_date_to,
+                                'metadata[guests]' => $nd_booking_booking_form_guests,
+                                'metadata[name]' => $nd_booking_booking_form_name.' '.$nd_booking_booking_form_surname,
+                                'metadata[email]' => $nd_booking_booking_form_email,
+                                'metadata[phone]' => $nd_booking_booking_form_phone,
+                                'metadata[address]' => $nd_booking_booking_form_address.' '.$nd_booking_booking_form_city.' '.$nd_booking_booking_form_country.' '.$nd_booking_booking_form_zip,
+                                'metadata[requests]' => $nd_booking_booking_form_requests
+                            ),
+                            'cookies' => array()
+                        
+                        )
+                    );
+                    
+                }else{
+                    //create the charge without a customer so the error gets trapped
+
+                //prepare the request
+                    $nd_booking_response = wp_remote_post( 
+
+                        $nd_booking_url, 
+
+                        array(
+                        
+                            'method' => 'POST',
+                            'timeout' => 45,
+                            'redirection' => 5,
+                            'httpversion' => '1.0',
+                            'blocking' => true,
+                            'headers' => array(
+                                'Authorization' => 'Bearer '.$nd_booking_stripe_secret_key
+                            ),
+                            'body' => array( 
+                                'amount' => $nd_booking_amount,
+                                'currency' => $nd_booking_currency,
+                                'description' => $nd_booking_description,
+                                'source' => $nd_booking_source,
+                                'metadata[date_from]' => $nd_booking_booking_form_date_from,
+                                'metadata[date_to]' => $nd_booking_booking_form_date_to,
+                                'metadata[guests]' => $nd_booking_booking_form_guests,
+                                'metadata[name]' => $nd_booking_booking_form_name.' '.$nd_booking_booking_form_surname,
+                                'metadata[email]' => $nd_booking_booking_form_email,
+                                'metadata[phone]' => $nd_booking_booking_form_phone,
+                                'metadata[address]' => $nd_booking_booking_form_address.' '.$nd_booking_booking_form_city.' '.$nd_booking_booking_form_country.' '.$nd_booking_booking_form_zip,
+                                'metadata[requests]' => $nd_booking_booking_form_requests
+                            ),
+                            'cookies' => array()
+                        
+                        )
+                    );
+                }
 
                 // START check the response
                 $nd_booking_http_response_code = wp_remote_retrieve_response_code( $nd_booking_response );
-
+                $nd_booking_response_body = wp_remote_retrieve_body( $nd_booking_response );
+                    $nd_booking_stripe_data = json_decode( $nd_booking_response_body );
                 if ( $nd_booking_http_response_code == 200 ) {
 
-                    $nd_booking_response_body = wp_remote_retrieve_body( $nd_booking_response );
-                    $nd_booking_stripe_data = json_decode( $nd_booking_response_body );
+                   // $nd_booking_response_body = wp_remote_retrieve_body( $nd_booking_response );
+                   // $nd_booking_stripe_data = json_decode( $nd_booking_response_body );
 
                     if ( $nd_booking_stripe_data->paid == 1 ) { $nd_booking_booking_form_payment_status = 'Completed'; }
 
@@ -262,6 +333,7 @@ function nd_booking_shortcode_checkout() {
                     //$error_message = $nd_booking_response->get_error_message();
                     $nd_booking_paypal_error = 1;
                     $nd_booking_paypal_tx = 'Incomplete Transaction';
+                    $nd_booking_stripe_error = $nd_booking_stripe_data->error->message;
                 }
                 //END check the response
 
