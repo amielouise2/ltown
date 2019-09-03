@@ -142,8 +142,8 @@ $nd_options_customizer_font_color_h = get_option( 'nd_options_customizer_font_co
 	/*arrow for item has children*/
 	.nd_options_navigation_4 .menu ul.sub-menu li.menu-item-has-children > a:after { content:""; float: right; border-style: solid; border-width: 5px 0 5px 5px; border-color: transparent transparent transparent <?php echo $nd_options_customizer_font_color_h; ?>; margin-top: 3px; }
 
-	/*search*/
-	#nd_options_container_search_icon_navigation { position: absolute; right: 20px; top: 20px; }
+	/*search
+	#nd_options_container_search_icon_navigation { position: absolute; right: 20px; top: 20px; }*/
 
 	/*labels*/
 	.nd_options_navigation_4 .menu li.nd_options_new_label > a:after { border-radius: 15px; padding: 3px 8px; letter-spacing: 0px; }

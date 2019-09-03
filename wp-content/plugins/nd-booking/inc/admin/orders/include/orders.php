@@ -195,11 +195,12 @@ if ( empty($nd_booking_orders) ) {
     <tbody>
       <tr class="nd_booking_table_thead">
         <td width="25%"><span style="text-transform: capitalize;">'.nd_booking_get_slug('singular').'</span></td>
-        <td width="20%">'.__('Dates','nd-booking').'</td>
+        <td width="15%">'.__('Dates','nd-booking').'</td>
         <td width="7.5%">'.__('Price','nd-booking').'</td>
         <td width="20%">'.__('Name','nd-booking').'</td>
         <td width="10%">'.__('Payment','nd-booking').'</td>
-        <td width="17.5%">'.__('Status','nd-booking').'</td>
+        <td width="10.5%">'.__('Status','nd-booking').'</td>
+        <td width="17.5%">'.__('Error','nd-booking').'</td>
       </tr>
     ';
 
@@ -265,7 +266,7 @@ if ( empty($nd_booking_orders) ) {
             <span class="nd_booking_section"><u>'.__('To','nd-booking').'</u> : '.$nd_booking_order->date_to.'</span>
           </td>
           <!--<td>'.$nd_booking_order->guests.'</td>-->
-          <td>'.$nd_booking_order->final_trip_price.' '.nd_booking_get_currency().'</td>
+          <td>'.nd_booking_get_currency().''.$nd_booking_order->final_trip_price.' </td>
           <td>
             <div style="width:50px;" class="nd_booking_float_left">
               <img width="40" src="'.$nd_booking_account_avatar_url.'">
@@ -278,6 +279,7 @@ if ( empty($nd_booking_orders) ) {
           <!--<td>'.$nd_booking_order->user_phone.'</td>-->
           <td><span class="nd_booking_text_transform_capitalize">'.$nd_booking_new_action_type.'</span></td>
           <td><span style="background-color:'.$nd_booking_color_bg_status.';" class="nd_booking_padding_5 nd_booking_color_ffffff nd_booking_font_size_12 nd_booking_text_transform_uppercase">'.$nd_booking_order->paypal_payment_status.'</span></td>
+          <td><span style="background-color:'.$nd_booking_color_bg_status.';" class="nd_booking_padding_5 nd_booking_color_ffffff nd_booking_font_size_12 nd_booking_text_transform_uppercase">'.$nd_booking_order->stripe_error.'</span></td>
         </tr>
 
     ';
@@ -296,6 +298,7 @@ if ( empty($nd_booking_orders) ) {
       <td>'.__('Name','nd-booking').'</td>
       <td>'.__('Payment','nd-booking').'</td>
       <td>'.__('Status','nd-booking').'</td>
+      <td>'.__('Error','nd-booking').'</td>
     </tr>
     </tbody>
   </table>

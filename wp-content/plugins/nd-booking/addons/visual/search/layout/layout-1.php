@@ -22,10 +22,10 @@ $str .= '
                         <div class="nd_booking_section nd_booking_height_15"></div> 
                         <div class="nd_booking_display_inline_flex ">
                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_options_color_greydark nd_booking_font_weight_bold">'.$nd_booking_date_number_from_front.'</h1>
+                            <h1 id="nd_booking_date_number_from_front" class="nd_booking_font_size_50 nd_options_color_greydark nd_booking_font_weight_bold"></h1>
                           </div>
                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                              <h6 id="nd_booking_date_month_from_front" class="nd_options_color_greydark  nd_booking_margin_top_7 nd_booking_font_size_12">'.$nd_booking_date_month_from_front.'</h6>
+                              <h6 id="nd_booking_date_month_from_front" class="nd_options_color_greydark  nd_booking_margin_top_7 nd_booking_font_size_12"></h6>
                               <div class="nd_booking_section nd_booking_height_5"></div>
                               <img alt="" width="12" src="'.esc_url(plugins_url('icon-down-arrow-grey.svg', __FILE__ )).'">
                           </div>
@@ -45,10 +45,10 @@ $str .= '
                         <div class="nd_booking_section nd_booking_height_15"></div> 
                         <div class="nd_booking_display_inline_flex ">
                           <div class="nd_booking_float_left nd_booking_text_align_right">
-                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_options_color_greydark nd_booking_font_weight_bold">'.$nd_booking_date_number_to_front.'</h1>
+                            <h1 id="nd_booking_date_number_to_front" class="nd_booking_font_size_50 nd_options_color_greydark nd_booking_font_weight_bold"></h1>
                           </div>
                           <div class="nd_booking_float_right nd_booking_text_align_center nd_booking_margin_left_10">
-                              <h6 id="nd_booking_date_month_to_front" class="nd_options_color_greydark  nd_booking_margin_top_7 nd_booking_font_size_12">'.$nd_booking_date_month_to_front.'</h6>
+                              <h6 id="nd_booking_date_month_to_front" class="nd_options_color_greydark  nd_booking_margin_top_7 nd_booking_font_size_12"></h6>
                               <div class="nd_booking_section nd_booking_height_5"></div>
                               <img alt="" width="12" src="'.esc_url(plugins_url('icon-down-arrow-grey.svg', __FILE__ )).'">
                           </div>
@@ -110,7 +110,7 @@ $str .= '
                           defaultDate: "+1w",
                           altField: "#nd_booking_date_month_to",
                           altFormat: "M",
-                          minDate: "+1d",
+                          minDate: "+2d",
                           monthNames: ["'.__('January','nd-booking').'","'.__('February','nd-booking').'","'.__('March','nd-booking').'","'.__('April','nd-booking').'","'.__('May','nd-booking').'","'.__('June','nd-booking').'", "'.__('July','nd-booking').'","'.__('August','nd-booking').'","'.__('September','nd-booking').'","'.__('October','nd-booking').'","'.__('November','nd-booking').'","'.__('December','nd-booking').'"],
                           monthNamesShort: [ "'.__('Jan','nd-booking').'", "'.__('Feb','nd-booking').'", "'.__('Mar','nd-booking').'", "'.__('Apr','nd-booking').'", "'.__('Maj','nd-booking').'", "'.__('Jun','nd-booking').'", "'.__('Jul','nd-booking').'", "'.__('Aug','nd-booking').'", "'.__('Sep','nd-booking').'", "'.__('Oct','nd-booking').'", "'.__('Nov','nd-booking').'", "'.__('Dec','nd-booking').'" ],
                           dayNamesMin: ["'.__('SU','nd-booking').'","'.__('MO','nd-booking').'","'.__('TU','nd-booking').'","'.__('WE','nd-booking').'","'.__('TH','nd-booking').'","'.__('FR','nd-booking').'", "'.__('SA','nd-booking').'"],

@@ -93,11 +93,16 @@ function nd_booking_meta_box_save_cpt_5( $post_id )
 {
 
     //main settings : sanitize and validate
-    $nd_booking_meta_box_cpt_5_percentage = sanitize_text_field( $_POST['nd_booking_meta_box_cpt_5_percentage'] );
-    if ( isset( $nd_booking_meta_box_cpt_5_percentage ) ) { update_post_meta( $post_id, 'nd_booking_meta_box_cpt_5_percentage' , $nd_booking_meta_box_cpt_5_percentage ); }
-
-    $nd_booking_meta_box_cpt_5_code = sanitize_text_field( $_POST['nd_booking_meta_box_cpt_5_code'] );
-    if ( isset( $nd_booking_meta_box_cpt_5_code ) ) { update_post_meta( $post_id, 'nd_booking_meta_box_cpt_5_code' , $nd_booking_meta_box_cpt_5_code ); }
+    if ( isset($nd_booking_meta_box_cpt_5_percentage)){
+        $nd_booking_meta_box_cpt_5_percentage = sanitize_text_field( $_POST['nd_booking_meta_box_cpt_5_percentage'] );
+        if ( isset( $nd_booking_meta_box_cpt_5_percentage ) ) { update_post_meta( $post_id, 'nd_booking_meta_box_cpt_5_percentage' , $nd_booking_meta_box_cpt_5_percentage ); 
+        }
+    }
+    if ( isset($nd_booking_meta_box_cpt_5_code)){
+        $nd_booking_meta_box_cpt_5_code = sanitize_text_field( $_POST['nd_booking_meta_box_cpt_5_code'] );
+        if ( isset( $nd_booking_meta_box_cpt_5_code ) ) { update_post_meta( $post_id, 'nd_booking_meta_box_cpt_5_code' , $nd_booking_meta_box_cpt_5_code ); 
+        }
+    }
 
 }
 

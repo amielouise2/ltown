@@ -1,0 +1,14 @@
+2019-08-31T16:57:41+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function nd_booking_send_message(), 23 passed in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/class-wp-hook.php on line 288 and exactly 24 expected in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/message/index.php:65
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/class-wp-hook.php(288): nd_booking_send_message('95', 'The Birch', '16:08:41 August...', '09/11/2019', '09/13/2019', '1', '394.29', '', 4, 'Walt', 'Whitman', 'amie.louise@me....', '333224444', ' ', '', '', '', 'I do not know', '', 'Completed', '$', 'ch_1FDZtRHfLpD8...', 'no error')
+#1 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/message/index.php on line 65
+
+2019-08-31T17:00:25+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function nd_booking_send_message(), 23 passed in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/class-wp-hook.php on line 288 and exactly 24 expected in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/message/index.php:65
+Stack trace:
+#0 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/class-wp-hook.php(288): nd_booking_send_message('2165', 'The Maple', '17:08:25 August...', '09/04/2019', '09/07/2019', '1', '591.43', '', 4, 'Janice', 'Joplin', 'amie.louise@me....', '2223334444', ' ', '', '', '', 'I do not know', '', 'Completed', '$', 'ch_1FDZw4HfLpD8...', 'no error')
+#1 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#2 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#3 /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-boo in /Users/amiewalton/Documents/Websites/www.ltown.dev.cc/wp-content/plugins/nd-booking/addons/message/index.php on line 65
+

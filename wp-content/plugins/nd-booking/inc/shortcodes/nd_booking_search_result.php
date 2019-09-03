@@ -41,7 +41,7 @@ function nd_booking_shortcode_search_results() {
         $nd_booking_date_number_from_front = date('d', strtotime(' + 1 days'));
         $nd_booking_date_month_from_front = date('M');
         $nd_booking_date_month_from_front = date_i18n('M');
-        $nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
+        $nd_booking_date_tomorrow = new DateTime('tomorrow', strtotime(' + 2 days'));
         $nd_booking_date_number_to_front = $nd_booking_date_tomorrow->format('d');
         $nd_booking_date_month_to_front = $nd_booking_date_tomorrow->format('M');
         $nd_booking_todayy = date('Y/m/d', strtotime(' + 1 days'));
@@ -284,4 +284,4 @@ function nd_booking_sorting_php() {
 }
 add_action( 'wp_ajax_nd_booking_sorting_php', 'nd_booking_sorting_php' );
 add_action( 'wp_ajax_nopriv_nd_booking_sorting_php', 'nd_booking_sorting_php' );
-//END
+//END   

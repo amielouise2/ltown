@@ -100,13 +100,14 @@ if(have_posts()) :
     	$nd_booking_date_from = date('m/d/Y', strtotime(' + 1 day'));
         $nd_booking_date_to = date('Y-m-d', strtotime(' + 2 days'));
         $nd_booking_archive_form_guests = 1;
-        $nd_booking_nights_number = 1;
+		$nd_booking_nights_number = 1;
+		
         $nd_booking_date_number_from_front = date('d', strtotime(' + 1 day'));
         $nd_booking_date_month_from_front = date('M');
+        
 		$nd_booking_date_month_from_front = date_i18n('M',strtotime($nd_booking_date_from));
 		 //customize for 2 night stay
 		$nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
-		//$nd_booking_date_tomorrow = new DateTime('tomorrow + 1day');
 		$nd_booking_date_number_to_front = $nd_booking_date_tomorrow->format('d');
 		 //customize for 2 night stay
 		
@@ -457,7 +458,7 @@ if(have_posts()) :
 						                <img alt="" class="" width="40" src="'.esc_url(plugins_url('icon-bed-grey.svg', __FILE__ )).'">
 										<div class="nd_booking_section nd_booking_height_5"></div>
 										<p class="">'.nd_booking_get_currency().' '.get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true ).' / '.__('PER NIGHT', 'nd_booking').'</p>
-						               <!-- <p class="">'.nd_booking_get_final_price($nd_booking_id,date('m/d/Y')).' '.nd_booking_get_currency().' / '.__('PER NIGHT','nd-booking').'</p> -->
+						                
 						            </div>
 						            <div id="nd_booking_single_cpt_1_basic_info_week_price" class="nd_booking_week_price_icon nd_booking_width_25_percentage nd_booking_width_100_percentage_all_iphone nd_booking_margin_top_40_all_iphone nd_booking_float_left nd_booking_text_align_center">
 						                <span class="nd_booking_position_relative nd_booking_display_inline_block ">

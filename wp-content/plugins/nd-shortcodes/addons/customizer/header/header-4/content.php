@@ -207,7 +207,7 @@ jQuery(document).ready(function() {
                     	<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
                 	</div>
 
-                    <?php do_action('nd_options_hook_icons_navigation'); ?>
+                   
                 
                 </div> 
   

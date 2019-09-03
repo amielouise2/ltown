@@ -18,13 +18,11 @@ function nd_booking_vc_shortcode_search($atts, $content = null)
   $nd_booking_layout = $atts['nd_booking_layout'];
   $nd_booking_submit_padding = $atts['nd_booking_submit_padding'];
   $nd_booking_submit_bg = $atts['nd_booking_submit_bg'];
-  $nd_booking_archive_form_guests = '';
+  $nd_booking_archive_form_guests = '1';
   //date options
-  //$nd_booking_date_number_from_front = date('d');
-  $nd_booking_date_from_tomorrow = new DateTime('tomorrow');
-  $nd_booking_date_number_from_front = $nd_booking_date_from_tomorrow->format('d');
-  $nd_booking_date_month_from_front = $nd_booking_date_from_tomorrow->format('M');
-  //$nd_booking_date_month_from_front = date_i18n('M');
+  $nd_booking_date_number_from_front = date('d', strtotime(' + 1 day') );
+  $nd_booking_date_month_from_front = date('M');
+  $nd_booking_date_month_from_front = date_i18n('M');
   //customize for 2 night stay
   $nd_booking_date_tomorrow = new DateTime('tomorrow + 1 day');
   $nd_booking_date_number_to_front = $nd_booking_date_tomorrow->format('d' );
@@ -32,6 +30,7 @@ function nd_booking_vc_shortcode_search($atts, $content = null)
   $nd_booking_todayy = date('Y/m/d', strtotime(' + 1 day'));
   $nd_booking_tomorroww = date('Y/m/d', strtotime($nd_booking_todayy.' + 1 day'));
   $nd_booking_date_month_to_front = date_i18n('M', strtotime($nd_booking_tomorroww));
+ 
   //default value
   if ($nd_booking_layout == '') { $nd_booking_layout = "layout-1"; }
   //include script for calendar
@@ -113,3 +112,4 @@ function nd_booking_search() {
       )
    ) );
 }
+//end shortcode
