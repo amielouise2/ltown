@@ -1,0 +1,18 @@
+2019-09-03T02:49:34+00:00 CRITICAL Uncaught TypeError: DateTime::__construct() expects parameter 2 to be DateTimeZone, int given in /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:44
+Stack trace:
+#0 /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php(44): DateTime->__construct('tomorrow', 1567651774)
+#1 /opt/bitnami/apps/wordpress/htdocs/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /opt/bitnami/apps/wordpress/htdocs/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#4 /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_sea...')
+#5 /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php(31): wpb_js_remove_wpautop('<p>[nd_boo in /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 44
+
+2019-09-03T02:53:06+00:00 CRITICAL Uncaught TypeError: DateTime::__construct() expects parameter 2 to be DateTimeZone, int given in /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php:44
+Stack trace:
+#0 /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php(44): DateTime->__construct('tomorrow', 1567651986)
+#1 /opt/bitnami/apps/wordpress/htdocs/wp-includes/shortcodes.php(325): nd_booking_shortcode_search_results('', '', 'nd_booking_sear...')
+#2 [internal function]: do_shortcode_tag(Array)
+#3 /opt/bitnami/apps/wordpress/htdocs/wp-includes/shortcodes.php(199): preg_replace_callback('/\\[(\\[?)(nd_boo...', 'do_shortcode_ta...', '[nd_booking_sea...')
+#4 /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/js_composer/include/helpers/helpers.php(236): do_shortcode('[nd_booking_sea...')
+#5 /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/js_composer/include/templates/shortcodes/vc_column_text.php(31): wpb_js_remove_wpautop('<p>[nd_boo in /opt/bitnami/apps/wordpress/htdocs/wp-content/plugins/nd-booking/inc/shortcodes/nd_booking_search_result.php on line 44
+

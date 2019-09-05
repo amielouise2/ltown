@@ -1,5 +1,6 @@
 <?php
 
+$nd_booking_final_trip_price = number_format($nd_booking_final_trip_price, 2, '.', '');
 
 $nd_booking_message_enable = get_option('nd_booking_message_enable');
 //if ( $nd_booking_message_enable == 1 and get_option('nicdark_theme_author') == 1 ) {

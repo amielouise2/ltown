@@ -1,6 +1,21 @@
 <?php
 
 
+$nd_booking_order_final_trip_price = number_format($nd_booking_order_final_trip_price, 2, '.', '');
+if (!function_exists('write_log')) {
+
+    function write_log($log) {
+        if (true === WP_DEBUG) {
+            if (is_array($log) || is_object($log)) {
+                error_log(print_r($log, true));
+            } else {
+                error_log($log);
+            }
+        }
+    }
+
+}
+write_log($nd_formatted_final_trip_price);
 //image
 $nd_booking_image_src = nd_booking_get_post_img_src($nd_booking_order_id_post);
 if ( $nd_booking_image_src != '' ) { 
@@ -111,7 +126,7 @@ $nd_booking_shortcode_left_content .= '
 
               <div class="nd_booking_display_inline_block ">
                   <div id="nd_booking_final_trip_price_content" class="nd_booking_float_left nd_booking_text_align_right">
-                      <h1 id="nd_booking_final_trip_price" class="nd_options_color_white nd_booking_font_size_50"><span>'.$nd_booking_order_final_trip_price.'</span></h1>
+                      <h1 id="nd_booking_final_trip_price" class="nd_options_color_white nd_booking_font_size_50"><span>'.$nd_formatted_final_trip_price.'</span></h1>
                   </div>
                   <div class="nd_booking_float_right nd_booking_text_align_left nd_booking_margin_left_10">
                       <h5 class="nd_options_second_font nd_options_color_white nd_booking_margin_top_7 nd_booking_font_size_14 nd_booking_font_weight_lighter">'.nd_booking_get_currency().'<p></p>

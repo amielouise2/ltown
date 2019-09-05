@@ -14,7 +14,7 @@ $nd_booking_payment_on_arrive_enable = get_option('nd_booking_payment_on_arrive_
 if ( $nd_booking_payment_on_arrive_enable == 1 and get_option('nicdark_theme_author') == 1 ) { }else{ $nd_booking_shortcode_right_content .= '<style>#nd_booking_poa_payment,#nd_booking_checkout_payment_3_tab { display:none; }</style>'; }
 
 $nd_booking_stripe_enable = get_option('nd_booking_stripe_enable'); 
-if ( $nd_booking_stripe_enable == 1 and get_option('nicdark_theme_author') == 1 ) { }else{ $nd_booking_shortcode_right_content .= '<style>#nd_booking_s_payment,#nd_booking_checkout_payment_5_tab { display:none; }</style>'; }
+/*if ( $nd_booking_stripe_enable == 1 and get_option('nicdark_theme_author') == 1 ) { }else{ $nd_booking_shortcode_right_content .= '<style>#nd_booking_s_payment,#nd_booking_checkout_payment_5_tab { display:none; }</style>'; }*/
 
 $nd_booking_shortcode_right_content .= '
 
@@ -153,7 +153,7 @@ $nd_booking_shortcode_right_content .= '
                 <input type="hidden" id="nd_booking_booking_form_action_type" name="nd_booking_booking_form_action_type" value="bank_transfer">
                 <input type="hidden" id="nd_booking_booking_form_payment_status" name="nd_booking_booking_form_payment_status" value="Pending Payment">
 
-             <!--   <input class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" id="" name="" value="'.__('BOOK NOW','nd-booking').'"> -->
+               <!-- <input class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" id="" name="" value="'.__('BOOK NOW','nd-booking').'"> -->
             </form>
 
 
@@ -382,10 +382,9 @@ $nd_booking_shortcode_right_content .= '
                 <input type="hidden" name="cancel_return" value="" />
                 <input type="hidden" name="button_subtype" value="services">
                 <input type="hidden" name="no_note" value="0">
-                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">';
-                if ($nd_booking_booking_request_enable != 1) {
-                '<input class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" id="" name="" value="'.__('PAY NOW','nd-booking').'">';
-                }'
+                <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+            
+                <input class="nd_booking_font_size_11 nd_options_second_font_important nd_booking_font_weight_bold nd_booking_letter_spacing_2 nd_booking_padding_15_35_important" type="submit" id="" name="" value="'.__('PAY NOW','nd-booking').'">
 
             </form>
 

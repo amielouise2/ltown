@@ -132,9 +132,9 @@ function nd_booking_shortcode_booking() {
             wp_enqueue_script( 'nd_booking_booking_final_price', esc_url( plugins_url( 'final_price.js', __FILE__ ) ), array( 'jquery' ) ); 
             wp_localize_script( 'nd_booking_booking_final_price', 'nd_booking_my_vars_final_price', $nd_booking_final_price_params );
 
-
+            $nd_booking_alert_login = '';
             //register login info
-            if ( is_user_logged_in() ) {
+            /*if ( is_user_logged_in() ) {
 
               $nd_booking_alert_login = '';
 
@@ -147,7 +147,7 @@ function nd_booking_shortcode_booking() {
                 <div class="nd_booking_booking_alert_login_register nd_booking_section nd_booking_height_40"></div>
               ';
 
-            }
+            }*/
 
             include 'include/booking/nd_booking_booking_additional_services.php';
             include 'include/booking/nd_booking_booking_left_content.php';

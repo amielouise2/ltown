@@ -7,21 +7,22 @@ $nd_booking_shortcode_left_content = '';
 $nd_booking_trip_price_for_person = 0;
 $nd_booking_index = 1;
 $nd_booking_date_cicle = $nd_booking_date_from;
-while ($nd_booking_index <= nd_booking_get_number_night($nd_booking_date_from,$nd_booking_date_to)) {
+/*while ($nd_booking_index <= nd_booking_get_number_night($nd_booking_date_from,$nd_booking_date_to)) {
 
     $nd_booking_trip_price_for_person = $nd_booking_trip_price_for_person + nd_booking_get_final_price($nd_booking_form_booking_id,$nd_booking_date_cicle);
 
     $nd_booking_date_cicle = date('Y/m/d', strtotime($nd_booking_date_cicle.' + 1 days'));
 
     $nd_booking_index++;
-} 
-
+} */
+$nd_booking_trip_price_for_person = $nd_booking_trip_price_for_person + nd_booking_get_final_price_tribic($nd_booking_form_booking_id, $nd_booking_date_from, $nd_booking_date_to);
 $nd_booking_price_guests_enable = get_option('nd_booking_price_guests');
 if ( $nd_booking_price_guests_enable == 1 ) {
   $nd_booking_trip_price = $nd_booking_trip_price_for_person*$nd_booking_form_booking_guests;
 }else{
   $nd_booking_trip_price = $nd_booking_trip_price_for_person;
 }
+$nd_booking_trip_price = number_format($nd_booking_trip_price, 2, '.', '');
 //END price
 
 

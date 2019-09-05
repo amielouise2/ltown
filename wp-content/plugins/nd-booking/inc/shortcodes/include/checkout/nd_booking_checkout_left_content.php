@@ -1,6 +1,6 @@
 <?php
 
-
+$nd_booking_booking_form_final_price_formatted = number_format($nd_booking_booking_form_final_price, 2, '.', '');
 
 //image
 $nd_booking_image_src = nd_booking_get_post_img_src($nd_booking_booking_form_post_id);
@@ -53,7 +53,7 @@ if ( $nd_booking_booking_form_coupon == '') {
 }else{
   $nd_booking_booking_form_final_price = $nd_booking_booking_form_final_price-$nd_booking_booking_form_final_price*nd_booking_get_coupon_value($nd_booking_booking_form_coupon)/100;
 }
-
+$nd_booking_booking_form_final_price = number_format($nd_booking_booking_form_final_price, 2, '.', '');
 
 $nd_booking_shortcode_left_content = '';
 $nd_booking_shortcode_left_content .= '
@@ -121,7 +121,7 @@ $nd_booking_shortcode_left_content .= '
 
           <div class="nd_booking_display_inline_block ">
               <div id="nd_booking_final_trip_price_content" class="nd_booking_float_left nd_booking_text_align_right">
-                  <h1 id="nd_booking_final_trip_price" class="nd_options_color_white nd_booking_font_size_50"><span>'.$nd_booking_booking_form_final_price.'</span></h1>
+                  <h1 id="nd_booking_final_trip_price" class="nd_options_color_white nd_booking_font_size_50"><span>'.$nd_booking_booking_form_final_price_formatted.'</span></h1>
               </div>
               <div class="nd_booking_float_right nd_booking_text_align_left nd_booking_margin_left_10">
                   <h5 class="nd_options_second_font nd_options_color_white nd_booking_margin_top_7 nd_booking_font_size_14 nd_booking_font_weight_lighter">'.nd_booking_get_currency().'<p></p>

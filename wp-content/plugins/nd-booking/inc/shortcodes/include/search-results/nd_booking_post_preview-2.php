@@ -127,15 +127,15 @@ $nd_booking_shortcode_right_content .= '
                             $nd_booking_trip_price = 0;
                             $nd_booking_index = 1;
                             $nd_booking_date_cicle = $nd_booking_date_from;
-                            while ($nd_booking_index <= nd_booking_get_number_night($nd_booking_date_from,$nd_booking_date_to)) {
+                            /* while ($nd_booking_index <= nd_booking_get_number_night($nd_booking_date_from,$nd_booking_date_to)) {
 
                                 $nd_booking_trip_price = $nd_booking_trip_price + nd_booking_get_final_price($nd_booking_id,$nd_booking_date_cicle);
 
                                 $nd_booking_date_cicle = date('Y/m/d', strtotime($nd_booking_date_cicle.' + 1 days'));
 
                                 $nd_booking_index++;
-                            } 
-
+                            }  */
+                            $nd_booking_trip_price = nd_booking_get_final_price_tribic($nd_booking_id, $nd_booking_date_from, $nd_booking_date_to);
 
                             $nd_booking_shortcode_right_content .= '
                             <div class="nd_booking_section nd_booking_height_20"></div>

@@ -3,19 +3,7 @@
 
 //START  nd_booking_checkout
 function nd_booking_shortcode_checkout() {
-    if (!function_exists('write_log')) {
-
-        function write_log($log) {
-            if (true === WP_DEBUG) {
-                if (is_array($log) || is_object($log)) {
-                    error_log(print_r($log, true));
-                } else {
-                    error_log($log);
-                }
-            }
-        }
     
-    }
 
     $nd_booking_date = date('H:m:s F j Y');
     $nd_booking_booking_form_currency = nd_booking_get_currency();
@@ -190,8 +178,7 @@ function nd_booking_shortcode_checkout() {
             }else{
 
                 //stripe data
-                write_log('THIS IS THE START OF STRIPE - stripe error is..');
-                write_log($nd_booking_stripe_error);
+                
 
                 $nd_booking_amount = $nd_booking_booking_form_final_price*100;
                 $nd_booking_currency = get_option('nd_booking_stripe_currency');
@@ -222,8 +209,7 @@ function nd_booking_shortcode_checkout() {
                     )
                 );     
                 $nd_customer_http_response_code = wp_remote_retrieve_response_code( $nd_customer_response );
-                write_log('CUSTOMER RESPONSE CODE IS ...');
-                write_log($nd_customer_http_response_code);
+                
                 //if we have a good customer object create the charge with customer
                 if ( $nd_customer_http_response_code == 200 ) {
                     

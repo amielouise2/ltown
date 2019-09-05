@@ -2,17 +2,35 @@
 
 
 function nd_booking_get_final_price($nd_booking_id,$nd_booking_date){
+	if (!function_exists('write_log')) {
 
+        function write_log($log) {
+            if (true === WP_DEBUG) {
+                if (is_array($log) || is_object($log)) {
+                    error_log(print_r($log, true));
+                } else {
+                    error_log($log);
+                }
+            }
+        }
+    
+    }
 	$nd_booking_get_final_price = '';
 
 	//date
+	
 	$nd_booking_new_date = new DateTime($nd_booking_date);
+	
 	$nd_booking_new_date_format_mdy = date_format($nd_booking_new_date, 'm/d/Y');
 	$nd_booking_new_date_format_n = date_format($nd_booking_new_date, 'N');
 
 	//default price
 	$nd_booking_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
-
+	$nd_booking_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
+	/*write_log("booking price is....");
+	write_log($nd_booking_price);
+	write_log("booking min price is....");
+	write_log($nd_booking_min_price);*/
 	//week price
 	$nd_booking_price_mon = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_week_price_mon', true );
     $nd_booking_price_tue = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_week_price_tue', true );
@@ -22,10 +40,11 @@ function nd_booking_get_final_price($nd_booking_id,$nd_booking_date){
     $nd_booking_price_sat = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_week_price_sat', true );
     $nd_booking_price_sun = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_week_price_sun', true );
     $nd_booking_price_week = array($nd_booking_price_mon,$nd_booking_price_tue,$nd_booking_price_wed,$nd_booking_price_thu,$nd_booking_price_fri,$nd_booking_price_sat,$nd_booking_price_sun);
-
+	
 	//exception
     $nd_booking_exceptions = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_exceptions', true );
-
+	//write_log("booking exceptions is....");
+	//write_log($nd_booking_exceptions);
 
     if  ( $nd_booking_exceptions != '' ) {
 
@@ -41,8 +60,13 @@ function nd_booking_get_final_price($nd_booking_id,$nd_booking_date){
 		    $nd_booking_exception_name = get_the_title($nd_booking_exception_id);
 
 		    //metabox
-		    $nd_booking_meta_box_cpt_3_exceptions_type = get_post_meta( $nd_booking_exception_id, 'nd_booking_meta_box_cpt_3_exceptions_type', true );
-		    if  ( $nd_booking_meta_box_cpt_3_exceptions_type == '' ) { $nd_booking_meta_box_cpt_3_exceptions_type = 'nd_booking_custom_price'; }
+			$nd_booking_meta_box_cpt_3_exceptions_type = get_post_meta( $nd_booking_exception_id, 'nd_booking_meta_box_cpt_3_exceptions_type', true );
+			write_log("nd_booking_meta_box_cpt_3_exceptions_type before if is....");
+			write_log($nd_booking_meta_box_cpt_3_exceptions_type);
+			if  ( $nd_booking_meta_box_cpt_3_exceptions_type == '' ) { $nd_booking_meta_box_cpt_3_exceptions_type = 'nd_booking_custom_price'; 
+			}
+			write_log("nd_booking_meta_box_cpt_3_exceptions_type after if is....");
+			write_log($nd_booking_meta_box_cpt_3_exceptions_type);
 		    $nd_booking_meta_box_cpt_3_price = get_post_meta( $nd_booking_exception_id, 'nd_booking_meta_box_cpt_3_price', true ); 
 		    $nd_booking_meta_box_cpt_3_date_range_from = get_post_meta( $nd_booking_exception_id, 'nd_booking_meta_box_cpt_3_date_range_from', true ); 
 		    $nd_booking_meta_box_cpt_3_date_range_to = get_post_meta( $nd_booking_exception_id, 'nd_booking_meta_box_cpt_3_date_range_to', true ); 
@@ -87,7 +111,11 @@ function nd_booking_get_final_price($nd_booking_id,$nd_booking_date){
     	return  $nd_booking_get_final_price;
 
     }else{
+		/* write_log("what is the new date format variable?");
+		write_log($nd_booking_new_date_format_n);
 
+		write_log($nd_booking_price_week[1]);
+		write_log($nd_booking_price_week[2]); */
     	if  ( $nd_booking_price_week[$nd_booking_new_date_format_n-1] != '' ) {
 
 	    	$nd_booking_get_final_price = $nd_booking_price_week[$nd_booking_new_date_format_n-1];	
@@ -99,16 +127,57 @@ function nd_booking_get_final_price($nd_booking_id,$nd_booking_date){
 	    }
 
 	    #echo 'id: '.$nd_booking_id.' - data passata '.$nd_booking_new_date_format_mdy.' non soggetta ad eccezzione  -> COSTO FINALE : '.$nd_booking_get_final_price.'<br/>';	
-
+		write_log('the final price is ..');
+		write_log($nd_booking_get_final_price);
 	    return  $nd_booking_get_final_price;
-
+		
     }
 
 
 
 }
 
+function nd_booking_get_final_price_tribic($nd_booking_id,$nd_booking_from_date, $nd_booking_to_date){
+	if (!function_exists('write_log')) {
 
+        function write_log($log) {
+            if (true === WP_DEBUG) {
+                if (is_array($log) || is_object($log)) {
+                    error_log(print_r($log, true));
+                } else {
+                    error_log($log);
+                }
+            }
+        }
+    
+	}
+	
+	$date1 = strtotime($nd_booking_to_date);
+	$date2 = strtotime($nd_booking_from_date);
+	$diff = $date1 - $date2;
+	$days_booked = round($diff / 86400);
+	write_log('days booked is');
+	write_log($days_booked);
+	$nd_booking_get_final_price = '';
+
+	//date
+	
+
+	//default price
+	$nd_booking_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_price', true );
+	$nd_booking_min_price = get_post_meta( $nd_booking_id, 'nd_booking_meta_box_min_price', true );
+
+	if ($days_booked % 7 == 0){
+		$nd_rounded_total = round(($nd_booking_min_price * $days_booked),1);
+	}else{
+		$nd_rounded_total = round( ($nd_booking_price * $days_booked), 1 );
+	}
+	$nd_booking_get_final_price = number_format($nd_rounded_total, 2,'.', '');
+	write_log('the final price is ..');
+	write_log($nd_booking_get_final_price);
+	return  $nd_booking_get_final_price;
+		
+}
 
 function nd_booking_get_next_prev_month_year($nd_booking_date,$nd_booking_month_year,$nd_booking_next_prev){
 

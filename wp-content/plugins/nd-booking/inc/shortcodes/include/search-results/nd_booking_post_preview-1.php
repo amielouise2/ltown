@@ -129,14 +129,19 @@ $nd_booking_shortcode_right_content .= '
                             $nd_booking_trip_price = 0;
                             $nd_booking_index = 1;
                             $nd_booking_date_cicle = $nd_booking_date_from;
-                            while ($nd_booking_index <= nd_booking_get_number_night($nd_booking_date_from,$nd_booking_date_to)) {
+                            
+                               /* while ($nd_booking_index <= nd_booking_get_number_night($nd_booking_date_from,$nd_booking_date_to)) {
 
-                                $nd_booking_trip_price = $nd_booking_trip_price + nd_booking_get_final_price($nd_booking_id,$nd_booking_date_cicle);
+                                    $nd_booking_trip_price = $nd_booking_trip_price + nd_booking_get_final_price($nd_booking_id,$nd_booking_date_cicle);
+    
+                                    $nd_booking_date_cicle = date('Y/m/d', strtotime($nd_booking_date_cicle.' + 1 days'));
+    
+                                    $nd_booking_index++;
+                                } */
+                                $nd_booking_trip_price = nd_booking_get_final_price_tribic($nd_booking_id, $nd_booking_date_from, $nd_booking_date_to);
 
-                                $nd_booking_date_cicle = date('Y/m/d', strtotime($nd_booking_date_cicle.' + 1 days'));
-
-                                $nd_booking_index++;
-                            } 
+                            
+                            
 
 
                             $nd_booking_shortcode_right_content .= '
@@ -156,7 +161,7 @@ $nd_booking_shortcode_right_content .= '
                                 <input type="hidden" name="nd_booking_form_booking_date_to" value="'.$nd_booking_date_to.'">
                                 <input type="hidden" name="nd_booking_form_booking_guests" value="'.$nd_booking_archive_form_guests.'">
                                 <input type="hidden" name="nd_booking_form_booking_arrive_advs" value="1">
-                                <input style="border:2px solid '.$nd_booking_meta_box_color.'; color:'.$nd_booking_meta_box_color.';" class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_background_color_transparent_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2" type="submit" value="'.__('BOOK NOW','nd-booking').' '.__('FOR','nd-booking').' '.$nd_booking_trip_price.' '.nd_booking_get_currency().'">
+                                <input style="border:2px solid '.$nd_booking_meta_box_color.'; color:'.$nd_booking_meta_box_color.';" class="nd_booking_padding_15_30_important nd_options_second_font_important nd_booking_border_radius_0_important nd_booking_background_color_transparent_important nd_booking_cursor_pointer nd_booking_display_inline_block nd_booking_font_size_11 nd_booking_font_weight_bold nd_booking_letter_spacing_2" type="submit" value="'.__('BOOK NOW','nd-booking').' '.__('FOR','nd-booking').' '.nd_booking_get_currency().''.$nd_booking_trip_price.' ">
                             </form>';
 
                         }
