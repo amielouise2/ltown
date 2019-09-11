@@ -1,6 +1,6 @@
 <?php
 
-$nd_booking_final_trip_price = number_format($nd_booking_final_trip_price, 2, '.', '');
+
 
 $nd_booking_message_enable = get_option('nd_booking_message_enable');
 //if ( $nd_booking_message_enable == 1 and get_option('nicdark_theme_author') == 1 ) {
@@ -73,7 +73,7 @@ if ( $nd_booking_message_enable == 1 ){
 		if($nd_booking_action_type == 'stripe'){
 			$nd_booking_action_type = 'Credit Card';
 		}
-
+		$nd_booking_final_trip_price = number_format($nd_booking_final_trip_price, 2, '.', '');
 		//services
 		$nd_booking_extra_services_result = '';
 		if ( $nd_booking_extra_services == '' ) {
@@ -152,7 +152,7 @@ if ( $nd_booking_message_enable == 1 ){
 		
 		$to  = $admin_email;
 		$nd_booking_email = get_option('admin_email');
-		//$nd_booking_email = 'amie@tribicsoftware.com';
+		
 		//$nd_booking_name = get_bloginfo( 'name' );
 
 		// Subject

@@ -121,8 +121,8 @@ function nd_booking_get_final_price_tribic($nd_booking_id,$nd_booking_from_date,
 	$date2 = strtotime($nd_booking_from_date);
 	$diff = $date1 - $date2;
 	$days_booked = round($diff / 86400);
-	write_log('days booked is');
-	write_log($days_booked);
+	//write_log('days booked is');
+	//write_log($days_booked);
 	$nd_booking_get_final_price = '';
 	//date
 	
@@ -135,8 +135,8 @@ function nd_booking_get_final_price_tribic($nd_booking_id,$nd_booking_from_date,
 		$nd_rounded_total = round( ($nd_booking_price * $days_booked), 1 );
 	}
 	$nd_booking_get_final_price = number_format($nd_rounded_total, 2,'.', '');
-	write_log('the final price is ..');
-	write_log($nd_booking_get_final_price);
+	//write_log('the final price is ..');
+	//write_log($nd_booking_get_final_price);
 	return  $nd_booking_get_final_price;
 		
 }
