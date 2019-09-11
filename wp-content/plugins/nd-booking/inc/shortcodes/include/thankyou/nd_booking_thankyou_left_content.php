@@ -1,7 +1,7 @@
 <?php
 
-$nd_booking_booking_form_final_price = number_format($nd_booking_booking_form_final_price, 2, '.', '');
 
+$nd_booking_booking_form_final_price = number_format($nd_booking_booking_form_final_price, 2, '.', '');
 //image
 $nd_booking_image_src = nd_booking_get_post_img_src($nd_booking_checkout_form_post_id);
 if ( $nd_booking_image_src != '' ) { 

@@ -20,6 +20,8 @@ function nd_options_shortcode_text($atts, $content = null)
     'nd_options_text_padding' => '',
     'nd_options_underline_effect_color' => '',
     'nd_options_underline_effect' => '',
+    'nd_options_url' => '',
+    
   ), $atts);
 
   $str = '';
@@ -36,6 +38,8 @@ function nd_options_shortcode_text($atts, $content = null)
   $nd_options_text_family = $atts['nd_options_text_family'];
   $nd_options_text_align = $atts['nd_options_text_align'];
   $nd_options_text_padding = $atts['nd_options_text_padding'];
+  $nd_options_url = $atts['nd_options_url'];
+ 
 
   //underline
 
@@ -59,8 +63,12 @@ function nd_options_shortcode_text($atts, $content = null)
     $nd_options_underline_effect_class = ''; 
   }
 
-
+  if ( $nd_options_url == ''){
   $str .= ' <'.$nd_options_text_tag.' style="color:'.$nd_options_text_color.'; padding:'.$nd_options_text_padding.'px; text-align:'.$nd_options_text_align.'; font-size:'.$nd_options_text_font_size.'px; line-height:'.$nd_options_text_line_height.'px; letter-spacing: '.$nd_options_text_letter_spacing.'px; font-weight:'.$nd_options_text_weight.';" class=" '.$nd_options_underline_effect_class.' '.$nd_options_class.' '.$nd_options_text_family.' ">'.$nd_options_text.'</'.$nd_options_text_tag.'> ';
+  }
+  else{
+   $str .= ' <a href='.$nd_options_url.' style="color:'.$nd_options_text_color.'; padding:'.$nd_options_text_padding.'px; text-align:'.$nd_options_text_align.'; font-size:'.$nd_options_text_font_size.'px; line-height:'.$nd_options_text_line_height.'px; letter-spacing: '.$nd_options_text_letter_spacing.'px; font-weight:'.$nd_options_text_weight.';" class=" '.$nd_options_underline_effect_class.' '.$nd_options_class.' '.$nd_options_text_family.' ">'.$nd_options_text.'</a> ';
+  }
 
    return apply_filters('uds_shortcode_out_filter', $str);
 }
@@ -174,11 +182,18 @@ function nd_options_text() {
          array(
             "type" => "textfield",
             "class" => "",
+            "heading" => __( "URL Link", "nd-shortcodes" ),
+            "param_name" => "nd_options_url",
+            "description" => __( "Enter full url (http://)", "nd-shortcodes" )
+         ),
+         array(
+            "type" => "textfield",
+            "class" => "",
             "heading" => __( "Custom class", "nd-shortcodes" ),
             "param_name" => "nd_options_class",
             "description" => __( "Insert custom class", "nd-shortcodes" )
-         )
-
+         ),
+         
         
       )
    ) );
