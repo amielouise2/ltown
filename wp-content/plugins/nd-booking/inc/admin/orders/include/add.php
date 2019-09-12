@@ -17,6 +17,7 @@ function nd_booking_settings_menu_add_orders() { ?>
     <?php
 
     //get datas
+    $nd_booking_stripe_error = "n/a";
     $nd_booking_id_room = sanitize_text_field($_POST['nd_booking_add_order_room_id']);
     $nd_booking_title_room = get_the_title($nd_booking_id_room);
     //customize get timestamp
@@ -195,7 +196,7 @@ function nd_booking_settings_menu_add_orders() { ?>
               <div class="nd_booking_validation_errors"></div>
             </div>
             <div style="padding-left:10px;" class="nd_booking_float_left nd_booking_width_50_percentage nd_booking_box_sizing_border_box nd_booking_add_order_final_price">
-              <input id="nd_booking_add_order_final_price" class="nd_booking_width_100_percentage" type="number" name="nd_booking_add_order_final_price" value="">
+              <input id="nd_booking_add_order_final_price" class="nd_booking_width_100_percentage" type="number" step='0.01' value='0.00' placeholder='0.00'  name="nd_booking_add_order_final_price">
               <p class="nd_booking_color_666666 nd_booking_section nd_booking_margin_0 nd_booking_margin_top_10"><strong><?php _e('Final Price','nd-booking') ?> *</strong></p>
               <div class="nd_booking_validation_errors"></div>
             </div>

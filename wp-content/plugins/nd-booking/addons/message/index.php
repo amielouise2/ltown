@@ -1,7 +1,6 @@
 <?php
 
 
-
 $nd_booking_message_enable = get_option('nd_booking_message_enable');
 //if ( $nd_booking_message_enable == 1 and get_option('nicdark_theme_author') == 1 ) {
 	
@@ -64,17 +63,23 @@ if ( $nd_booking_message_enable == 1 ){
 
 	//nd_booking_send_message
 	function nd_booking_send_message($nd_booking_id_post,$nd_booking_title_post,$nd_booking_date,$nd_booking_date_from,$nd_booking_date_to,$nd_booking_guests,$nd_booking_final_trip_price,$nd_booking_extra_services,$nd_booking_id_user,$nd_booking_user_first_name,$nd_booking_user_last_name,$nd_booking_paypal_email,$nd_booking_user_phone,$nd_booking_user_address,$nd_booking_user_city,$nd_booking_user_country,$nd_booking_user_message,$nd_booking_user_arrival,$nd_booking_user_coupon,$nd_booking_paypal_payment_status,$nd_booking_paypal_currency,$nd_booking_paypal_tx,$nd_booking_stripe_error,$nd_booking_action_type){
-		if ($nd_booking_paypal_payment_status == 'Completed'){
-			$nd_booking_lockbox_pin = mt_rand( 1000, 9999 );
-		}else{
-			$nd_booking_lockbox_pin = '';
-		}
+		
+		
+		$nd_booking_lockbox_pin = '';
+		
 		
 		if($nd_booking_action_type == 'stripe'){
 			$nd_booking_action_type = 'Credit Card';
+			if ($nd_booking_paypal_payment_status == 'Completed'){
+				$nd_booking_lockbox_pin = mt_rand( 1000, 9999 );
+			}
+		}
+		if($nd_booking_action_type == 'bank_transfer'){
+			$nd_booking_lockbox_pin = mt_rand( 1000, 9999 );
 		}
 		$nd_booking_final_trip_price = number_format($nd_booking_final_trip_price, 2, '.', '');
 		//services
+		
 		$nd_booking_extra_services_result = '';
 		if ( $nd_booking_extra_services == '' ) {
 
